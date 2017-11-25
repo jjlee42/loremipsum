@@ -24,28 +24,28 @@
 <body class="index-page sidebar-collapse">
 
     <div class="wrapper" ng-controller="PriceController">
-        <div class="page-header clear-filter" filter-color="orange">
+        <div class="page-header" filter-color="orange">
             <div class="page-header-image" data-parallax="true" style="background-image: url('./assets/img/bg12.jpg');">
             </div>
-            <div class="container">
+            <div class="container" style="padding-top: 40px;">
                 <h1 style= "text-align: center;"> Shopping list</h3>
-                   <div>
-                    <ul>
+                   <div style="padding-top: 30px;">
+                    <ul style="list-style: none; font-size: 23px;">
                         <li ng-repeat="item in items | filter: filterText">{{item}}</li>
                     </ul>
                     <div class="row">
                       <div class="col-sm-4">  
                       </div>
                       <div class="col-sm-4">
-                        <input type="text" ng-model="newItem" class="form-control"> 
-                        <button ng-click="add()" class="btn btn-info btn-round">Add Item</button>
+                        <input type="text" ng-model="newItem" class="form-control" style="font-size: 23px;"> 
+                        <button ng-click="add()" class="btn btn-info btn-round" style="font-size: 20px;">Add Item</button>
                       </div>
                       <div class="col-sm-4"></div>
                     </div>
                 </div>
-            <button ng-click="showSuggestions()" class="btn btn-success btn-round">Show Suggestions</button>
+            <button ng-click="showSuggestions()" class="btn btn-success btn-round" style="font-size: 20px;">Show Suggestions</button>
             <div id="suggestions">
-                <ul>
+                <ul style="list-style: none; font-size: 23px;">
                     <li ng-repeat="item in finalItems">
                         For {{item.name}}, the best store is {{item.store}} with the price of {{item.price}} 
                     </li>
