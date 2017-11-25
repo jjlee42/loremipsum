@@ -1,7 +1,8 @@
 window.app.controller('PriceController', ($scope, $http) => {
-	$scope.items = ['cabbage', 'umbrella', 'steam train'];
+	$scope.items = ['milk', 'granola', 'apples'];
 
 	$scope.add = function (){
+		console.log("fgh");
    		$scope.items.push($scope.newItem);
 	}
 
@@ -17,4 +18,7 @@ window.app.controller('PriceController', ($scope, $http) => {
 		console.log(items.Tesco[item].price)
 	}
 
+	$scope.RemoveItem = function(item) {
+    		$scope.items.splice($scope.items.indexOf(item), 1);
+  	};
 })

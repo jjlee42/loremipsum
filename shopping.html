@@ -36,10 +36,18 @@
                     <input type="text" ng-model="newItem"> <button ng-click="add()">Add Item</button>
                 </div>
             <button ng-click="add()">Show Suggestions</button>
+                <h1 style= "text-align: center;"> Shopping list</h1>
+                    <h2 style= "text-align: center;"> What do yo need to get?</h2>
+                     <h3><div ng-controller="PriceController">
+                        <ul style="list-style-type:none">
+                            <li ng-repeat="item in items | filter: filterText">{{item}}<a href="" ng-click="RemoveItem(item)"> x </a></li>
+                        </ul>
+                    </div>
+                </h3>
+                <input type="text" ng-model="newItem"> <button ng-click="add()">Add Item</button>
             </div>
         </div>
     </div>
-
 </script>
 
 </html>
