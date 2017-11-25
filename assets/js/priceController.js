@@ -1,24 +1,38 @@
 window.app.controller('PriceController', ($scope, $http) => {
-	$scope.items = ['milk', 'granola', 'apples'];
+	$scope.items = [];
 
 	$scope.add = function (){
-		console.log("fgh");
    		$scope.items.push($scope.newItem);
 	}
 
-	var items = {};
+	var groceries = {};
 
-	$http.get('stores.json').then((response) => {
-		items = response; 
-		console.log(items)
+	$scope.showSuggestions = function (){
+   		$http.get('stores.json').then((response) => {
+		groceries = response;
+		$scope.finalItems = []; 
+
+		console.log(groceries)
+		for (var item in $scope.items) {
+			var tesco 		= groceries.data.Tesco[item].price
+			var sainsburys 	= groceries.data.Sainsburys[item].price
+			var waitrose 	= groceries.data.Waitrose[item].price
+
+			if(tesco < sainsburys && tesco < waitrose) {
+				$scope.finalItems.push({name: groceries.data.Tesco[item].name, 'store': 'Tesco', price: tesco})
+			}
+
+			else if(sainsburys < tesco && sainsburys < waitrose) {
+				$scope.finalItems.push({name: groceries.data.Sainsburys[item].name, 'store': 'Sainsburys', price: sainsburys})
+			}
+
+			else {
+				$scope.finalItems.push({name: groceries.data.Waitrose[item].name, 'store': 'Waitrose', price: waitrose})
+			}
+
+		}
 	})
-
-
-	for (var item in items.Tesco) {
-		console.log(items.Tesco[item].price)
 	}
 
-	$scope.RemoveItem = function(item) {
-    		$scope.items.splice($scope.items.indexOf(item), 1);
-  	};
+
 })
