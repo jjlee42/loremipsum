@@ -4,20 +4,23 @@ window.app.controller('PriceController', ($scope, $http) => {
 	$scope.add = function (){
    		$scope.items.push($scope.newItem);
 	}
-	var req = {
-	 method: 'OPTIONS',
-	 url: 'http://api.walmartlabs.com/v1/search?query=milk&format=json&apiKey=4xw4ftrc4fce5aep3duamcfu',
-	 headers: {
-	   'Access-Control-Allow-Origin': '*',
-	   'Access-Control-Allow-Methods': 'GET, POST, OPTIONS, PUT, PATCH, DELETE',
-	   'Access-Control-Allow-Headers': 'X-Requested-With,content-type',
-	   'Access-Control-Allow-Credentials': true
-	 },
-	 data: { test: 'test' }
+
+	var items = {
+		'Tesco':
+			[{ name: 'Milk', 	price: '3.42' },
+			 { name: 'Bread', 	price: '6.73' },
+			 { name: 'Eggs', 	price: '0.06' },
+			 { name: 'Cereal', 	price: '8.36' },
+			 { name: 'Beer', 	price: '7.70' },
+			 { name: 'Banana', 	price: '4.26' },
+			 { name: 'Apple',	price: '4.32' },
+			 { name: 'Pizza',	price: '7.77' },
+			 { name: 'Pepsi', 	price: '0.63' }]
+
 	}
 
-	$http(req).then((response) => {
-		console.log(response)
-	})
+	for (var item in items.Tesco) {
+		console.log(items.Tesco[item].price)
+	}
 
 })
