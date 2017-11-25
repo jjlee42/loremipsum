@@ -29,13 +29,17 @@
             </div>
             <div class="container">
                 <h1 style= "text-align: center;"> Shopping list</h3>
-                   <div ng-controller="PriceController">
-                    <ul>
-                        <li ng-repeat="item in items | filter: filterText">{{item}}</li>
-                    </ul>
-                    <input type="text" ng-model="newItem"> <button ng-click="add()">Add Item</button>
+                 <h3>
+                     <div ng-controller="PriceController">
+                        <ul style="list-style-type:none">
+                            <li ng-repeat="item in items | filter: filterText">{{item}}
+                        </ul>
+                        <input type="text" ng-model="newItem"> <button ng-click="add()">Add Item</button>
+                        <button ng-click= "RemoveItem"><a href="" ng-click="RemoveItem(item)">Remove</a></button>
+                    </li>
+                    </h3>
                 </div>
-            <button ng-click="add()">Show Suggestions</button>
+      <!--       <button ng-click="add()">Show Suggestions</button>
                 <h1 style= "text-align: center;"> Shopping list</h1>
                     <h2 style= "text-align: center;"> What do yo need to get?</h2>
                      <h3><div ng-controller="PriceController">
@@ -50,4 +54,4 @@
     </div>
 </script>
 
-</html>
+</html> -->
